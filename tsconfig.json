@@ -1,0 +1,17 @@
+{
+  "include": ["index.ts", "src/**/*"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
