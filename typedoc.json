@@ -1,0 +1,26 @@
+{
+  "entryPoints": ["./node_modules/everscale-inpage-provider/src/index.ts"],
+
+  "out": "docs/build",
+  "readme": "none",
+  "excludePrivate": true,
+  "includeVersion": true,
+  "categorizeByGroup": false,
+  "categoryOrder": [
+    "Provider",
+    "Contract",
+    "Stream",
+    "Models",
+    "Provider Api",
+    "Utils",
+    "*"
+  ],
+  "sort": ["source-order"],
+  "hideGenerator": true,
+  "excludeExternals": false
+  // "customCss": "typedoc.css",
+  // "markedOptions": {
+  //   "codeBlock": "fenced"
+  // }
+  // "plugin": ["typedoc-plugin-markdown"]
+}

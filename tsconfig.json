@@ -1,17 +1,27 @@
 {
-  "include": ["index.ts", "src/**/*"],
   "compilerOptions": {
-    "outDir": "dist",
-    "lib": ["ESNext"],
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
+    "lib": ["esnext", "dom"],
     "allowJs": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  }
+    "resolveJsonModule": true,
+    "strict": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
+    "jsx": "react",
+    "jsxFactory": "JSX.createElement",
+    "jsxFragmentFactory": "JSX.Fragment",
+    "useUnknownInCatchVariables": false,
+    "exactOptionalPropertyTypes": false
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "node_modules/everscale-inpage-provider/src/**/*"
+  ]
+  // "exclude": ["node_modules", "dist"]
 }
