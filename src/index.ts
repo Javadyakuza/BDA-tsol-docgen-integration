@@ -14,7 +14,6 @@ import {
   DefaultTheme,
   ReflectionKind,
 } from "typedoc";
-import { ProviderRpcClient } from "everscale-inpage-provider/src";
 
 import { generateAst } from "./ast";
 import { EVERSCALE_INPAGE_PROVIDER } from "./typedoc-config";

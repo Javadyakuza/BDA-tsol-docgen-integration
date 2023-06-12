@@ -60,14 +60,11 @@ export const renderSection = (props: RenderSectionProps) => {
           <div id={section.id?.toString()}>
             {!!section.name && (
               <h2 class="tsd-anchor-link" id={section.anchor}>
-                {/* {renderFlags(props.flags, props.comment)} */}
                 {wbr(section.name)}
-
                 {anchorIcon(context, section.anchor)}
               </h2>
             )}
 
-            {/* <h3 id={section.name}>{section.name}</h3> */}
             {section.children?.map((child: DeclarationReflection) => {
               return template(new PageEvent(PageEvent.BEGIN, child));
             })}

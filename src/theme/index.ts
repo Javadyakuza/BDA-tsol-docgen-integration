@@ -200,7 +200,9 @@ export class MyCustomTheme extends DefaultTheme {
   }
   setUrls(reflection: DeclarationReflection, parentUrl?: string) {
     if (reflection instanceof DeclarationReflection) {
-      reflection.url = parentUrl + "#" + reflection.name.replace(/ /g, "-");
+      const anchor = reflection.name.replace(/ /g, "-").toLowerCase();
+      reflection.anchor = anchor;
+      reflection.url = parentUrl + anchor;
 
       reflection.traverse(child => {
         if (child instanceof DeclarationReflection) {

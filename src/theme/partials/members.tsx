@@ -25,7 +25,7 @@ export function members(
                     : "",
                 )}
               >
-                <h3>321312312{item.title}</h3>
+                <h3>{item.title}</h3>
                 {item.children.map(
                   item => !item.hasOwnDocument && context.member(item),
                 )}

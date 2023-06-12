@@ -35,10 +35,10 @@ export function member(
             "tsd-anchor-link": true,
             "tsd-member-title": true,
           })}
+          id={props.name.toLowerCase()}
         >
           {renderFlags(props.flags, props.comment)}
           {wbr(props.name)}
-
           {anchorIcon(context, props.anchor)}
         </h5>
       )}

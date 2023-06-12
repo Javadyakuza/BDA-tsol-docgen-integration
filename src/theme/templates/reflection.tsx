@@ -43,13 +43,12 @@ export function reflectionTemplate(
         <h3
           class={classNames({
             deprecated: props.model.isDeprecated(),
-            "tsd-anchor-name": true,
+            "tsd-anchor-link": true,
           })}
           id={props.model.name}
         >
           {wbr(props.model.name)}
           {/* {renderFlags(props.flags, props.comment)} */}
-
           {/* {console.log(12, props.model.anchor)} */}
           {anchorIcon(context, props.model.anchor)}
         </h3>

@@ -14,6 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "everscale-inpage-provider": "github:cyace84/everscale-inpage-provider#docs",
+    "everscale-standalone-client": "2.1.19",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "prettier": "^2.8.8",

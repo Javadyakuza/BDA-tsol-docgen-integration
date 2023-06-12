@@ -1,6 +1,7 @@
 import { JSX, ReflectionGroup } from "typedoc";
 import { MyThemeRenderContext } from "../myThemeRenderContext";
 import { classNames } from "../../utils";
+import { anchorIcon } from "../partials/shared/anchorIcon";
 
 export function membersGroup(
   context: MyThemeRenderContext,
@@ -34,6 +35,8 @@ export function membersGroup(
         })}
       >
         {group.title}
+
+        {anchorIcon(context, group.title?.toLowerCase())}
       </h4>
       {group.children.map(item => !item.hasOwnDocument && context.member(item))}
     </section>
