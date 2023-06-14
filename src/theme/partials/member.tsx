@@ -35,13 +35,14 @@ export function member(
             "tsd-anchor-link": true,
             "tsd-member-title": true,
           })}
-          id={props.name.toLowerCase()}
+          id={props.anchor}
         >
           {renderFlags(props.flags, props.comment)}
           {wbr(props.name)}
           {anchorIcon(context, props.anchor)}
         </h5>
       )}
+
       {props.signatures
         ? context.memberSignatures(props)
         : props.hasGetterOrSetter()

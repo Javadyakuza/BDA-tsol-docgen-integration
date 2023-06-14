@@ -9,7 +9,13 @@ import {
 } from "typedoc";
 
 import { pageTemplate } from "./templates/page";
-import { tableOfContent, member, members, membersGroup } from "./partials";
+import {
+  tableOfContent,
+  member,
+  members,
+  membersGroup,
+  memberDeclaration,
+} from "./partials";
 import { pageLayout } from "./layout/pageLayout";
 import { reflectionTemplate } from "./templates/reflection";
 import { TocSection } from "../toc";
@@ -33,4 +39,5 @@ export class MyThemeRenderContext extends DefaultThemeRenderContext {
   member = bind(member, this);
   members = bind(members, this);
   membersGroup = bind(membersGroup, this);
+  memberDeclaration = bind(memberDeclaration, this);
 }

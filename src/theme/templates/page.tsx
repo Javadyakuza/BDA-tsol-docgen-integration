@@ -81,8 +81,10 @@ export const pageTemplate = (
 ) => {
   //const tocData = (props.model as any).tableOfContent as TableOfContent;
   const section = props.model as TocSection;
-  if (section.name === "Other") {
-    //console.log(section.children);
+  if (section.name === "Utils") {
+    for (const child of section.children!) {
+      console.log(child.name);
+    }
   }
   return <div>{renderSection({ context, section, template })}</div>;
 };

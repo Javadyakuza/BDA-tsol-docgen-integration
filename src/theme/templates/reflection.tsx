@@ -11,7 +11,7 @@ import { Raw, hasTypeParameters, classNames } from "../../utils";
 import { MyThemeRenderContext } from "../myThemeRenderContext";
 import { TocSection } from "../../toc";
 import { anchorIcon } from "./..//partials/shared/anchorIcon";
-import { wbr } from "./../utils";
+import { renderFlags, wbr } from "./../utils";
 
 export function reflectionTemplate(
   context: MyThemeRenderContext,
@@ -28,24 +28,13 @@ export function reflectionTemplate(
 
   return (
     <>
-      {/* <a id={props.model.anchor} class="tsd-anchor">
-        <h3 id={props.model.anchor}>12321{props.model.name}</h3>
-      </a> */}
-      {/* <a
-        id={
-          (props.model instanceof DeclarationReflection &&
-            props.model.anchor) ||
-          ""
-        }
-        class="tsd-anchor"
-      ></a> */}
       {!!props.model.name && (
         <h3
           class={classNames({
             deprecated: props.model.isDeprecated(),
             "tsd-anchor-link": true,
           })}
-          id={props.model.name}
+          id={props.model.anchor}
         >
           {wbr(props.model.name)}
           {/* {renderFlags(props.flags, props.comment)} */}
@@ -134,7 +123,7 @@ export function reflectionTemplate(
       )}
 
       {/* {!!props.model.children?.length && context.index(props.model)} */}
-
+      {props.model.name === "RawRpcMethod" && console.log(props.model)}
       {context.members(props.model)}
     </>
   );

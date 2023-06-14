@@ -11,7 +11,7 @@ function renderSection(
   section: TocSection,
 ) {
   return (
-    <details id={section.id.toString()} class="toc-section">
+    <details id={section.id.toString().toLowerCase()} class="toc-section">
       <summary>
         <a href={context.urlTo(section)}>{section.name}</a>
       </summary>
