@@ -7,7 +7,7 @@ export async function getApiReference(
   next: NextFunction,
 ) {
   try {
-    const projectName = (req.query.projectName as string).toLowerCase();
+    const projectName = (req.query.projectName as string)?.toLowerCase();
 
     if (!projectName) {
       res.status(404).send("Project not found");
