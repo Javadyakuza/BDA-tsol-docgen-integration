@@ -191,7 +191,7 @@ export function buildTableOfContent(
     for (const node of otherSections) {
       const sectionName = getCategoryName(node);
 
-      if (sectionName in toc) {
+      if (Object.keys(toc).includes(sectionName.toLowerCase())) {
         toc[sectionName.toLowerCase()].children?.push(node);
       } else {
         const section = new TocSection(
@@ -232,7 +232,6 @@ export function buildProjectToc(
     section.parentName = category.title;
     toc[category.title.toString().toLowerCase()] = section;
   }
-  //(project as any).tableOfContent = toc;
   return toc;
 }
 

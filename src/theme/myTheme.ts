@@ -74,8 +74,7 @@ export class MyCustomTheme extends DefaultTheme {
     // console.log(page.model.name, page.model.url);
 
     const event = new PageEvent(PageEvent.BEGIN, page.model);
-    if (page.model.name === "Provider") {
-    }
+
     const templateOutput = this.pageLayoutTemplate(page, template);
 
     return JSX.renderElement(templateOutput);

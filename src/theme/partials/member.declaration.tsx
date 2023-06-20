@@ -13,15 +13,14 @@ export const memberDeclaration = (
   <>
     {title && (
       <h4
-        id={props.name?.toLowerCase()}
+        id={title.toLowerCase()}
         class={classNames({
           "tsd-anchor-link": true,
           "tsd-member-title": true,
         })}
       >
-        {props.name}
-
-        {anchorIcon(context, props.name.toLowerCase())}
+        {title}
+        {anchorIcon(context, title)}
       </h4>
     )}
     <div class="tsd-signature">

@@ -20,14 +20,17 @@ interface RenderSectionProps {
 }
 export const renderSection = (props: RenderSectionProps) => {
   const { context, section, template } = props;
-  //console.log(section.tableOfContent === undefined);
+
   if (section.tableOfContent === undefined) {
     return (
       <div>
-        <h1>242321{section.name}</h1>
+        <h1>{section.name}</h1>
         {section.children!.map((child: DeclarationReflection) => (
-          <div id={section.id?.toString()}>
-            <h2>14881337{child.name}</h2>
+          <div id={section.name.toLowerCase()}>
+            <h2 class="tsd-anchor-link" id={child.anchor}>
+              {wbr(child.name)}
+              {anchorIcon(context, child.anchor)}
+            </h2>
 
             {template(new PageEvent(PageEvent.BEGIN, child))}
           </div>
@@ -35,29 +38,12 @@ export const renderSection = (props: RenderSectionProps) => {
       </div>
     );
   }
-  // if (section.name === "Other") {
-  //   console.log(
-  //     JSX.renderElement(
-  //       <div>
-  //         <h2>{section.name}</h2>
-  //         {Object.values(section.tableOfContent).map((section: TocSection) => (
-  //           <div id={section.id?.toString()}>
-  //             <h3>{section.name}</h3>
-  //             {section.children?.map((child: DeclarationReflection) => {
-  //               return template(new PageEvent(PageEvent.BEGIN, child));
-  //             })}
-  //           </div>
-  //         ))}
-  //       </div>,
-  //     ),
-  //   );
-  // }
 
   return (
     <div>
       {Object.values(section.tableOfContent).map((section: TocSection) => {
         return (
-          <div id={section.id?.toString()}>
+          <div id={section.name.toLowerCase()}>
             {!!section.name && (
               <h2 class="tsd-anchor-link" id={section.anchor}>
                 {wbr(section.name)}
@@ -81,10 +67,10 @@ export const pageTemplate = (
 ) => {
   //const tocData = (props.model as any).tableOfContent as TableOfContent;
   const section = props.model as TocSection;
-  if (section.name === "Utils") {
-    for (const child of section.children!) {
-      console.log(child.name);
-    }
-  }
+  // if (section.name === "Utils") {
+  //   for (const child of section.children!) {
+  //     console.log(child.name);
+  //   }
+  // }
   return <div>{renderSection({ context, section, template })}</div>;
 };

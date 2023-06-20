@@ -23,7 +23,7 @@ export function reflectionTemplate(
     ) &&
     props.model instanceof DeclarationReflection
   ) {
-    return context.memberDeclaration(props.model);
+    return context.memberDeclaration(props.model, props.model.name);
   }
 
   return (
@@ -37,8 +37,7 @@ export function reflectionTemplate(
           id={props.model.anchor}
         >
           {wbr(props.model.name)}
-          {/* {renderFlags(props.flags, props.comment)} */}
-          {/* {console.log(12, props.model.anchor)} */}
+          {renderFlags(props.model.flags, props.model.comment)}
           {anchorIcon(context, props.model.anchor)}
         </h3>
       )}
@@ -123,7 +122,7 @@ export function reflectionTemplate(
       )}
 
       {/* {!!props.model.children?.length && context.index(props.model)} */}
-      {props.model.name === "RawRpcMethod" && console.log(props.model)}
+
       {context.members(props.model)}
     </>
   );
