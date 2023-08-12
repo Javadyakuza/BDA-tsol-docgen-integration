@@ -22,6 +22,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "node_modules/everscale-inpage-provider/src/**/*"
-  ]
+, "src/tsol-docgen-config.js", "src/tsol-docgen/scripts/clean-up.js"  ]
   // "exclude": ["node_modules", "dist"]
 }

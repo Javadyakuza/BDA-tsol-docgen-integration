@@ -3,6 +3,7 @@ import session from "express-session";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { getApiReference } from "./api/v1/handlers/get";
+import { defaultDocgen } from "tsolidity-docgen-dev";
 
 import {
   Application,
@@ -17,6 +18,7 @@ import {
 
 import { generateAst } from "./ast";
 import { EVERSCALE_INPAGE_PROVIDER } from "./typedoc-config";
+import { execSync } from "child_process";
 
 // declare module "express" {
 //   interface Request {
@@ -54,15 +56,15 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 async function main() {
-  const typedocApp = new Application();
-  typedocApp.options.addReader(new ArgumentsReader(0));
-  typedocApp.options.addReader(new TypeDocReader());
-  typedocApp.options.addReader(new PackageJsonReader());
-  typedocApp.options.addReader(new TSConfigReader());
-  typedocApp.options.addReader(new ArgumentsReader(300));
-  await typedocApp.bootstrapWithPlugins(EVERSCALE_INPAGE_PROVIDER);
-  await generateAst(typedocApp);
-
+  // const typedocApp = new Application();
+  // typedocApp.options.addReader(new ArgumentsReader(0));
+  // typedocApp.options.addReader(new TypeDocReader());
+  // typedocApp.options.addReader(new PackageJsonReader());
+  // typedocApp.options.addReader(new TSConfigReader());
+  // typedocApp.options.addReader(new ArgumentsReader(300));
+  // await typedocApp.bootstrapWithPlugins(EVERSCALE_INPAGE_PROVIDER);
+  // await generateAst(typedocApp);
+  execSync("src/tsol-docgen/scripts/prepare-docs.sh"); // generates HTML from html
   app.listen(port, "0.0.0.0", () => {
     console.log(`Server is listening on port ${port}.`);
   });
